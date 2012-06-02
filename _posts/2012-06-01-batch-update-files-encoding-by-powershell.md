@@ -7,7 +7,7 @@ tags: [powershell]
 ---
 {% include JB/setup %}
 
-# how to update files encoding by powershell
+## how to update files encoding by powershell
 {% highlight ruby %}
 Get-ChildItem -Recurse | ForEach-Object{
     $outputName=$_.FullName
