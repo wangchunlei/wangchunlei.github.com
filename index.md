@@ -11,7 +11,7 @@ tagline: Supporting tagline
 -->
 
 {% assign posts = site.posts %}
-{% assign listing_limit = 5 %}
+{% assign listing_limit = 50 %}
 {% include post-listing.html %}
 
 
