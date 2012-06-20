@@ -8,7 +8,9 @@ tags: []
 {% include JB/setup %}
 
 # one to one and one to many
-public class user
+
+    {% highlight ruby %}
+    public class user
     {
         public user()
         {
@@ -23,7 +25,7 @@ public class user
         public virtual dep dep1 { get; set; }
     }
 
-public class dep
+    public class dep
     {
         public int id { get; set; }
         public Nullable<int> mainUser { get; set; }
@@ -34,17 +36,17 @@ public class dep
     }
 
 
-// Relationships
-            this.HasOptional(t => t.user)//可空
-                .WithMany(t => t.deps)//两边都有导航
-                //.WithOptionalDependent(t=>t.dep)如果是1对1
-                .HasForeignKey(d => d.mainUser).WillCascadeOnDelete(false);
-            this.HasRequired(t => t.user1)
-                .WithRequiredPrincipal(t => t.dep)//1对1 外键在user表上 且 不能为空
-                .WillCascadeOnDelete(false);
+    // Relationships
+    this.HasOptional(t => t.user)//可空
+        .WithMany(t => t.deps)//两边都有导航
+        //.WithOptionalDependent(t=>t.dep)如果是1对1
+        .HasForeignKey(d => d.mainUser).WillCascadeOnDelete(false);
+    this.HasRequired(t => t.user1)
+        .WithRequiredPrincipal(t => t.dep)//1对1 外键在user表上 且 不能为空
+        .WillCascadeOnDelete(false);
 
-            this.HasOptional(d => d.user2)
-                .WithOptionalDependent(t => t.dep1)//1对1 外键在dep表上 可空
-                .WillCascadeOnDelete(false);
+    this.HasOptional(d => d.user2)
+        .WithOptionalDependent(t => t.dep1)//1对1 外键在dep表上 可空
+        .WillCascadeOnDelete(false);
 
-
+    {% endhighlight %}
