@@ -7,6 +7,8 @@ tags: [powershell]
 ---
 {% include JB/setup %}
 
+<img width="200" src="http://ww4.sinaimg.cn/bmiddle/43a39d58gw1du4jhvqbjcg.gif" />
+
 ## how to update files encoding by powershell
 ---
 	Get-ChildItem -Recurse | ForEach-Object{
